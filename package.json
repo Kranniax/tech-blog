@@ -1,0 +1,22 @@
+{
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well.",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "start",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kranniax/tech-blog.git"
+  },
+  "author": "Shane Bramble-Wade",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kranniax/tech-blog/issues"
+  },
+  "homepage": "https://github.com/Kranniax/tech-blog#readme"
+}
