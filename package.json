@@ -4,7 +4,6 @@
   "type": "module",
   "description": "A CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well.",
   "main": "server.js",
-  "devDependencies": {},
   "scripts": {
     "test": "start",
     "start": "node server.js"
@@ -18,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Kranniax/tech-blog/issues"
   },
-  "homepage": "https://github.com/Kranniax/tech-blog#readme"
+  "homepage": "https://github.com/Kranniax/tech-blog#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
