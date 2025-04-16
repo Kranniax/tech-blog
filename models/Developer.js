@@ -1,4 +1,3 @@
-// const {DataTypes, Model } = require("sequelize");
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../config/connections";
 
@@ -40,7 +39,7 @@ Developer.init(
   {
     // Other model options go here
     sequelize, // We need to pass the connection instance
-     // don't automaitically create createdAt/updatedAt timestamp fields
+    // don't automaitically create createdAt/updatedAt timestamp fields
     timestamps: false,
     // don't pluralize name of database table
     freezeTableName: true,

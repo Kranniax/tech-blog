@@ -11,13 +11,17 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    comment: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    post_content: {
-      type: DataTypes.STRING,
+    post_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: "post",
+        key: "id",
+      },
     },
     developer_id: {
       type: DataTypes.INTEGER,
@@ -33,7 +37,7 @@ Comment.init(
     sequelize, // We need to pass the connection instance
     freezeTableName: true,
     underscored: true,
-    modelName: "User", // We need to choose the model name
+    modelName: "comment", // We need to choose the model name
   }
 );
 

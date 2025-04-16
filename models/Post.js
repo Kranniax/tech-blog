@@ -33,7 +33,7 @@ Post.init(
     sequelize, // We need to pass the connection instance
     freezeTableName: true,
     underscored: true,
-    modelName: "User", // We need to choose the model name
+    modelName: "post", // We need to choose the model name
   }
 );
 
