@@ -1,9 +1,9 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../config/connections";
 
-class Developer extends Model {}
+class User extends Model {}
 
-Developer.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -46,8 +46,8 @@ Developer.init(
     //use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
     underscored: true,
     //make it so our model name stays lowercase in the database
-    modelName: "developer", // We need to choose the model name
+    modelName: "user", // We need to choose the model name
   }
 );
 
-export { Developer };
+export { User };

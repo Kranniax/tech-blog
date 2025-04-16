@@ -23,11 +23,11 @@ Comment.init(
         key: "id",
       },
     },
-    developer_id: {
+    user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "developer",
+        model: "user",
         key: "id",
       },
     },
