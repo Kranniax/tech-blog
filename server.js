@@ -17,6 +17,6 @@ app.use(express.static(path.join(__dirname, "public"))); // Serve static files f
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
-    console.log("App is listening..");
+    console.log("App is listening...");
   });
 });
