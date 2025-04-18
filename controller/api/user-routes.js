@@ -2,7 +2,7 @@ import { User } from "../../models/index.js";
 import express from "express";
 const router = express.Router();
 
-// Define CRUD user-routes below.  
+// Define CRUD user-routes below.
 
 // get all users
 router.get("/", (req, res) => {
@@ -84,4 +84,4 @@ router.delete("/:id", (req, res) => {
     });
 });
 
-export { router };
+export default router;
