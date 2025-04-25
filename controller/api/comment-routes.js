@@ -28,8 +28,6 @@ router.get("/", (req, res) => {
 // // get a comment
 // router.get("/:id", (req, res) => {});
 
-
-
 // create a comment
 router.post("/", (req, res) => {
   Comment.create({
