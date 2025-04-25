@@ -1,4 +1,4 @@
-import { User } from "../../models/index.js";
+import { User, Post, Comment } from "../../models/index.js";
 import express from "express";
 const router = express.Router();
 
@@ -24,6 +24,22 @@ router.get("/:id", (req, res) => {
       id: req.params.id,
     },
     attributes: { exclude: ["password"] },
+    include: [
+      {
+        // Loads posts created by the user
+        model: Post,
+        attributes: ["id", "title", "content", "created_at"],
+      },
+      // include the Comment model here:
+      {
+        model: Comment,
+        attributes: ["id", "comment", "created_at"],
+        include: {
+          model: Post,
+          attributes: ["title"],
+        },
+      },
+    ],
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
@@ -49,7 +65,7 @@ router.put("/:id", (req, res) => {
   // Change everyone without a last name to "Doe"
   User.update(req.body, {
     where: {
-      id: req.body.id,
+      id: req.params.id,
     },
   })
     .then((dbUserData) => {
