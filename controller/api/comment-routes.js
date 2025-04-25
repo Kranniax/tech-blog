@@ -31,9 +31,9 @@ router.get("/", (req, res) => {
 // create a comment
 router.post("/", (req, res) => {
   Comment.create({
-    comment: req.params.comment,
-    post_id: req.params.post_id,
-    user_id: req.params.user_id,
+    comment: req.body.comment,
+    post_id: req.body.post_id,
+    user_id: req.body.user_id,
   })
     .then((dbCommentData) => res.status(200).json(dbCommentData))
     .catch((err) => {
