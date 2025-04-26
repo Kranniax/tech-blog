@@ -7,7 +7,8 @@
   "scripts": {
     "test": "start",
     "start": "node server.js",
-    "seed": "node db/seeds/seed.js"
+    "seed": "node db/seeds/seed.js",
+    "dev": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -24,13 +25,14 @@
     "connect-session-sequelize": "^7.1.7",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "express-handlebars": "^8.0.1",
+    "express-handlebars": "^8.0.3",
     "express-session": "^1.18.1",
     "jest": "^29.7.0",
     "mysql2": "^3.14.0",
     "sequelize": "^6.37.7"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.10",
+    "npm-check-updates": "^18.0.1"
   }
 }

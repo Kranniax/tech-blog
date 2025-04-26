@@ -1,5 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../config/connections.js";
+import bcrypt from "bcrypt";
 
 class User extends Model {}
 
@@ -37,6 +38,22 @@ User.init(
     },
   },
   {
+    hooks: {
+      // set up beforeCreate lifecycle "hook" functionality
+      async beforeCreate(newUserData) {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+      // set up beforeUpdate lifecycle "hook" functionality
+      async beforeUpdate(updatedUserData) {
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
+
+        return updatedUserData;
+      },
+    },
     // Other model options go here
     sequelize, // We need to pass the connection instance
     // don't automaitically create createdAt/updatedAt timestamp fields

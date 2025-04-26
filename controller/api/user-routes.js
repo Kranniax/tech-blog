@@ -64,6 +64,7 @@ router.post("/", (req, res) => {
 router.put("/:id", (req, res) => {
   // Change everyone without a last name to "Doe"
   User.update(req.body, {
+    individualHooks: true,
     where: {
       id: req.params.id,
     },
