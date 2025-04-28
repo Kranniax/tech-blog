@@ -1,8 +1,13 @@
 import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../config/connections.js";
 import bcrypt from "bcrypt";
-
-class User extends Model {}
+// create our User model
+class User extends Model {
+  // set up method to run instance data (per user) to check password.
+  checkPassword(loginPw) {
+    return bcrypt.compare(loginPw, this.password);
+  }
+}
 
 User.init(
   {
