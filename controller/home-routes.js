@@ -15,14 +15,16 @@ router.get("/", (req, res) => {
   }).then((dbPostData) => {
     // Serialize data so the template can read it
     const posts = dbPostData.map((post) => post.get({ plain: true }));
-    console.log(posts);
+    // console.log(posts);
 
     res.render("homepage", { posts });
   });
 });
 
 // render a single post
-router.get("/posts/:id", (req, res) => {});
+router.get("/posts/:id", (req, res) => {
+  
+});
 
 // render login page
 router.get("/login", (req, res) => {
