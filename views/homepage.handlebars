@@ -1,1 +1,25 @@
-<h2>{{message}}</h2>
+<div class="posts-container">
+    {{#each posts as |post|}}
+    <article class="post">
+        <div class="post-header">
+            <h2 class="post-title">
+                <a href="/post/{{post.id}}">{{post.title}}</a>
+            </h2>
+            <div class="post-meta">
+                Posted by {{post.user.username}} on {{post.createdAt}}
+            </div>
+        </div>
+        <div class="post-content">
+            {{!-- Optionally show a preview of the content --}}
+            <p>{{post.content}}</p>
+        </div>
+        <div class="post-footer">
+            <a href="/post/{{post.id}}" class="read-more">Read More</a>
+        </div>
+    </article>
+    {{/each}}
+</div>
+
+{{#unless posts.length}}
+<p class="no-posts">No posts available yet. <a href="/post/new">Be the first to post!</a></p>
+{{/unless}}
