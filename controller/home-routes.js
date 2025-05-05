@@ -22,15 +22,15 @@ router.get("/", (req, res) => {
 });
 
 // render a single post
-router.get("/posts/:id", (req, res) => {
-  
-});
+router.get("/posts/:id", (req, res) => {});
 
 // render login page
 router.get("/login", (req, res) => {
   res.render("login");
 });
 // render singup page
-router.get("/signup", (req, res) => {});
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
 
 export default router;

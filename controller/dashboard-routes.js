@@ -14,17 +14,18 @@ router.get("/:id", (req, res) => {
         attributes: ["id", "username"],
       },
     ],
-  }).then((dbUserData) => {
-    if (!dbUserData) {
+  }).then((dbPostData) => {
+    if (!dbPostData) {
       res.status(404).json({ message: "Posts cannot be found from this user" });
       return;
     }
     // serialize db data before rendering.
-    const userData = dbUserData.map((user) => user.get({ plain: true }));
-    // res.json(dbUserData);
-
+    const userPosts = dbPostData.map((post) => post.get({ plain: true }));
+    // res.json(dbPostData);
+    // console.log(userPosts);
+    
     // render data to dashboard handlebars template.
-    res.render("dashboard", { userData });
+    res.render("dashboard", { userPosts });
   });
 });
 

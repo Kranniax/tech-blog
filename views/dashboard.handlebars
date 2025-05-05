@@ -1,11 +1,11 @@
 
 <section class="dashboard">
-    <h1>Welcome, {{user.username}}!</h1>
+    {{!-- <h1>Welcome, {{userPosts[0].user.username}}!</h1> --}}
     <div class="post-list">
         <h2>Your Posts</h2>
-        {{#if posts.length}}
+        {{#if userPosts.length}}
             <ul>
-                {{#each posts as |post|}}
+                {{#each userPosts as |post|}}
                     <li>
                         <h3><a href="/post/{{post.id}}">{{post.title}}</a></h3>
                         <p>{{post.content}}</p>

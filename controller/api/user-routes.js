@@ -60,6 +60,7 @@ router.post("/", (req, res) => {
       res.status(500).json({ error: err });
     });
 });
+// login api authentication
 router.post("/login", (req, res) => {
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
