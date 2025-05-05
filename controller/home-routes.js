@@ -4,6 +4,8 @@ const router = Router();
 
 // render homepage with all posts
 router.get("/", (req, res) => {
+  console.log(req.session);
+
   Post.findAll({
     include: [
       {
@@ -15,9 +17,8 @@ router.get("/", (req, res) => {
   }).then((dbPostData) => {
     // Serialize data so the template can read it
     const posts = dbPostData.map((post) => post.get({ plain: true }));
-    // console.log(posts);
 
-    res.render("homepage", { posts });
+    res.render("homepage", { posts, loggedIn: req.session.loggedIn });
   });
 });
 
@@ -26,6 +27,11 @@ router.get("/posts/:id", (req, res) => {});
 
 // render login page
 router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+
   res.render("login");
 });
 // render singup page

@@ -3,10 +3,10 @@ import { User, Post } from "../models/index.js";
 
 const router = Router();
 // get the posts for a single user
-router.get("/:id", (req, res) => {
+router.get("/", (req, res) => {
   Post.findAll({
     where: {
-      user_id: req.params.id,
+      user_id: req.session.user_id,
     },
     include: [
       {
@@ -21,9 +21,7 @@ router.get("/:id", (req, res) => {
     }
     // serialize db data before rendering.
     const userPosts = dbPostData.map((post) => post.get({ plain: true }));
-    // res.json(dbPostData);
-    // console.log(userPosts);
-    
+
     // render data to dashboard handlebars template.
     res.render("dashboard", { userPosts });
   });

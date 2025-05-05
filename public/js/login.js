@@ -15,7 +15,7 @@ var loginFormHandler = async (event) => {
 
     // check the respone status
     if (response.ok) {
-        // if sucessful render the homepage.  
+        // if successful render the homepage.  
       document.location.replace("/");
     } else {
       alert(response.statusText);
