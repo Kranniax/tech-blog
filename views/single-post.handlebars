@@ -1,0 +1,22 @@
+<article class="single-post">
+    <header>
+        <h1>{{title}}</h1>
+        <p>By {{author}} on {{format_date createdAt}}</p>
+    </header>
+    <section class="post-content">
+        <p>{{content}}</p>
+    </section>
+    <footer>
+        <h2>Comments</h2>
+        <ul>
+            {{#each comments}}
+                <li>
+                    <p><strong>{{this.author}}:</strong> {{this.comment}}</p>
+                    <p><small>Posted on {{format_date this.createdAt}}</small></p>
+                </li>
+            {{else}}
+                <li>No comments yet. Be the first to comment!</li>
+            {{/each}}
+        </ul>
+    </footer>
+</article>
