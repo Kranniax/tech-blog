@@ -3,7 +3,7 @@
     <article class="post">
         <div class="post-header">
             <h2 class="post-title">
-                <a href="/post/{{post.id}}">{{post.title}}</a>
+                <a href="/posts/{{post.id}}">{{post.title}}</a>
             </h2>
             <div class="post-meta">
                 Posted by {{post.user.username}} on {{post.createdAt}}
@@ -14,7 +14,7 @@
             <p>{{post.content}}</p>
         </div>
         <div class="post-footer">
-            <a href="/post/{{post.id}}" class="read-more">Read More</a>
+            <a href="/posts/{{post.id}}" class="read-more">Read More</a>
         </div>
     </article>
     {{/each}}

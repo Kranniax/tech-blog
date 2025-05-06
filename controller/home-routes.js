@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { User, Post, Comment } from "../models/index.js";
-import { platform } from "os";
+
 const router = Router();
 
 // render homepage with all posts
@@ -36,18 +36,32 @@ router.get("/posts/:id", (req, res) => {
       },
       {
         model: Comment,
-        attributes: ["comment"],
+        attributes: ["comment", "user_id", "createdAt"],
+        include: [
+          {
+            model: User,
+            attributes: ["username"],
+          },
+        ],
       },
     ],
-  }).then((dbPostData) => {
-    if (!dbPostData) {
-      res.status(404).json({ message: "Cannot locate post with this id" });
-      return;
-    }
-    const post = dbPostData.get({ plain: true });
+  })
+    .then((dbPostData) => {
+      if (!dbPostData) {
+        res.status(404).json({ message: "Cannot locate post with this id" });
+        return;
+      }
+      // res.json(dbPostData);
+      const post = dbPostData.get({ plain: true });
+      // console.log(post);
+      
 
-    res.render("single-post", { post });
-  });
+      res.render("single-post", { post });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: err });
+    });
 });
 
 // render login page
