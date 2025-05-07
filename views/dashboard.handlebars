@@ -1,13 +1,13 @@
 
 <section class="dashboard">
-    {{!-- <h1>Welcome, {{userPosts[0].user.username}}!</h1> --}}
+    <h1>Welcome, {{username}}!</h1>
     <div class="post-list">
         <h2>Your Posts</h2>
         {{#if userPosts.length}}
             <ul>
                 {{#each userPosts as |post|}}
                     <li>
-                        <h3><a href="/post/{{post.id}}">{{post.title}}</a></h3>
+                        <h3><a href="/posts/{{post.id}}">{{post.title}}</a></h3>
                         <p>{{post.content}}</p>
                         <small>Posted on {{post.createdAt}}</small>
                         <a href="/edit/{{post.id}}" class="edit-btn">Edit</a>

@@ -1,9 +1,10 @@
 import { Router } from "express";
 import { User, Post } from "../models/index.js";
+import { withAuth } from "../utils/auth.js";
 
 const router = Router();
 // get the posts for a single user
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
   Post.findAll({
     where: {
       user_id: req.session.user_id,
@@ -23,7 +24,7 @@ router.get("/", (req, res) => {
     const userPosts = dbPostData.map((post) => post.get({ plain: true }));
 
     // render data to dashboard handlebars template.
-    res.render("dashboard", { userPosts });
+    res.render("dashboard", { userPosts, loggedIn: req.session.loggedIn, username: req.session.username });
   });
 });
 

@@ -18,6 +18,8 @@ var signupFormHandler = async (event) => {
     // check the respone status
     if (response.ok) {
       console.log("success");
+      // if successful render the homepage.
+      document.location.replace("/");
     } else {
       alert(response.statusText);
     }
