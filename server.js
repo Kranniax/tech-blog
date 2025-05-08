@@ -2,11 +2,12 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import { sequelize } from "./config/connections.js";
-import { engine } from "express-handlebars";
+import { engine, create } from "express-handlebars";
 import session from "express-session";
 import connectSessionSequelize from "connect-session-sequelize";
 const SequelizeStore = connectSessionSequelize(session.Store);
 import controller from "./controller/index.js";
+import helpers from "./utils/helpers.js";
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
 
@@ -37,8 +38,11 @@ const sess = {
 // set up sessions in express.
 app.use(session(sess));
 
+// register handlebars helper functions
+const hbs = create({ helpers });
+
 // register a handlebars view engine
-app.engine("handlebars", engine());
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 

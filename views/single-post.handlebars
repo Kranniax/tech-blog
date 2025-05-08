@@ -1,7 +1,7 @@
 <article class="single-post">
     <header>
         <h1>{{post.title}}</h1>
-        <p>By {{post.user.username}} on {{ post.createdAt}}</p>
+        <p>By {{post.user.username}} on {{format_date post.createdAt}}</p>
     </header>
     <section class="post-content">
         <p>{{post.content}}</p>
@@ -12,7 +12,7 @@
             {{#each post.comments}}
                 <li>
                     <p><strong>{{this.user.username}}:</strong> {{this.comment}}</p>
-                    <p><small>Posted on {{this.createdAt}}</small></p>
+                    <p><small>Posted on {{format_date this.createdAt}}</small></p>
                 </li>
             {{else}}
                 <li>No comments yet. Be the first to comment!</li>

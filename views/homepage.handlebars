@@ -6,12 +6,12 @@
                 <a href="/posts/{{post.id}}">{{post.title}}</a>
             </h2>
             <div class="post-meta">
-                Posted by {{post.user.username}} on {{post.createdAt}}
+                Posted by {{post.user.username}} on {{format_date post.createdAt}}
             </div>
         </div>
         <div class="post-content">
             {{!-- Optionally show a preview of the content --}}
-            <p>{{post.content}}</p>
+            <p>{{truncate post.content 200}}</p>
         </div>
         <div class="post-footer">
             <a href="/posts/{{post.id}}" class="read-more">Read More</a>

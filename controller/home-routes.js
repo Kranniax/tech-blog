@@ -5,7 +5,7 @@ const router = Router();
 
 // render homepage with all posts
 router.get("/", (req, res) => {
-  console.log(req.session);
+  // console.log(req.session);
 
   Post.findAll({
     include: [
