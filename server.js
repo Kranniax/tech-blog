@@ -8,6 +8,7 @@ import connectSessionSequelize from "connect-session-sequelize";
 const SequelizeStore = connectSessionSequelize(session.Store);
 import controller from "./controller/index.js";
 import helpers from "./utils/helpers.js";
+import "dotenv/config";
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
 
@@ -23,7 +24,7 @@ app.use(express.static(path.join(__dirname, "public"))); // Serve static files f
 
 // Configure session
 const sess = {
-  secret: "^6>2geVzOC=?C=:NVm?C", // Use environment variable in production
+  secret: process.env.SECRET_KEY, // Use environment variable in production
   cookie: {
     maxAge: 1800000, // 30 minutes
     httpOnly: true,
