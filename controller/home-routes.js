@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { User, Post, Comment } from "../models/index.js";
+// import session from "express-session";
 
 const router = Router();
 
@@ -45,6 +46,7 @@ router.get("/posts/:id", (req, res) => {
         ],
       },
     ],
+    order: [[{ model: Comment }, "createdAt", "DESC"]], // Most recent comments first
   })
     .then((dbPostData) => {
       if (!dbPostData) {
@@ -54,9 +56,8 @@ router.get("/posts/:id", (req, res) => {
       // res.json(dbPostData);
       const post = dbPostData.get({ plain: true });
       // console.log(post);
-      
 
-      res.render("single-post", { post , loggedIn: req.session.loggedIn});
+      res.render("single-post", { post, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.log(err);

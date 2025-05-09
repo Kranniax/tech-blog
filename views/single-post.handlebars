@@ -6,6 +6,12 @@
     <section class="post-content">
         <p>{{post.content}}</p>
     </section>
+    <div class="create-comment">
+        <form method="post" id="comment-form">
+            <textarea name="comment-text-area" id="comment-text-area" placeholder="Join the conversation"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
     <footer>
         <h2>Comments</h2>
         <ul>
@@ -20,3 +26,5 @@
         </ul>
     </footer>
 </article>
+
+<script src="/js/single-post.js"></script>
