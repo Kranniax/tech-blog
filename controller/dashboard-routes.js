@@ -15,6 +15,7 @@ router.get("/", withAuth, (req, res) => {
         attributes: ["id", "username"],
       },
     ],
+    order: [["created_at", "DESC"]],
   }).then((dbPostData) => {
     if (!dbPostData) {
       res.status(404).json({ message: "Posts cannot be found from this user" });
@@ -24,8 +25,22 @@ router.get("/", withAuth, (req, res) => {
     const userPosts = dbPostData.map((post) => post.get({ plain: true }));
 
     // render data to dashboard handlebars template.
-    res.render("dashboard", { userPosts, loggedIn: req.session.loggedIn, username: req.session.username });
+    res.render("dashboard", {
+      userPosts,
+      loggedIn: req.session.loggedIn,
+      username: req.session.username,
+    });
   });
+});
+
+// create new post from dashboard 
+router.get("/new", (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+    return;
+  }
+  // render new-post template
+  res.render("new-post", { loggedIn: req.session.loggedIn });
 });
 
 export default router;
