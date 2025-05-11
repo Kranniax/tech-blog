@@ -15,14 +15,15 @@
                         <p>{{post.content}}</p>
                         <small>Posted on {{format_date post.createdAt}}</small>
                         <a href="/edit/{{post.id}}" class="edit-btn">Edit</a>
-                        <form action="/delete/{{post.id}}" method="POST" class="delete-form">
+                        <form data-post-id="{{post.id}}" class="delete-form">
                             <button type="submit">Delete</button>
                         </form>
                     </li>
                 {{/each}}
             </ul>
         {{else}}
-            <p>You haven't written any posts yet. <a href="/new">Create one now!</a></p>
+            <p>You haven't written any posts yet. <a href="/dashboard/new">Create one now!</a></p>
         {{/if}}
     </div>
 </section>
+<script src="/js/delete-post.js"></script>
