@@ -33,14 +33,34 @@ router.get("/", withAuth, (req, res) => {
   });
 });
 
-// create new post from dashboard 
-router.get("/new", (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect("/login");
-    return;
-  }
+// create new post from dashboard
+router.get("/new", withAuth, (req, res) => {
   // render new-post template
   res.render("new-post", { loggedIn: req.session.loggedIn });
+});
+// edit a post from dashboard
+router.get("/edit/:id", withAuth, (req, res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: ["title", "content"],
+  })
+    .then((dbPostData) => {
+      if (!dbPostData) {
+        res.status(404).json({ message: "No post found with this id" });
+        return;
+      }
+      // Serialize the data for Handlebars
+      const post = dbPostData.get({ plain: true });
+
+      // render new-post template
+      res.render("edit-post", { ...post, loggedIn: req.session.loggedIn });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: "Failed to load post for editing." });
+    });
 });
 
 export default router;
