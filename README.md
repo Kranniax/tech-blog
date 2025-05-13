@@ -73,7 +73,7 @@ Created by Shane Bramble-Wade
 
 ## Project Status
 
-Project is: _in progress_
+Project is: _completed_
 
 ## Contact
 
