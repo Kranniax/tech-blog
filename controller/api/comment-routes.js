@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { User, Post, Comment } from "../../models/index.js";
-import { withAuth } from "../../utils/auth.js";
+import { withAuthAPI } from "../../utils/auth.js";
 
 const router = Router();
 
@@ -30,7 +30,7 @@ router.get("/", (req, res) => {
 // router.get("/:id", (req, res) => {});
 
 // create a comment
-router.post("/", withAuth, (req, res) => {
+router.post("/", withAuthAPI, (req, res) => {
   Comment.create({
     comment: req.body.comment,
     post_id: req.body.post_id,

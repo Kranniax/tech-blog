@@ -1,14 +1,16 @@
+// Authentication for api routes
+const withAuthAPI = (req, res, next) => {
+  if (!req.session.user_id) {
+    return res.status(401).json({ message: "Unauthorized. Please log in." });
+  }
+  next();
+};
+// Authentication for non-api routes.
 const withAuth = (req, res, next) => {
   if (!req.session.user_id) {
-    // Check if the request is an API call
-    if (req.originalUrl.startsWith("/api/")) {
-      return res.status(401).json({ message: "Unauthorized. Please log in." });
-    }
-    // Redirect for non-API routes
     return res.redirect("/login");
   }
-    next();
-  
+  next();
 };
 
-export { withAuth };
+export { withAuth, withAuthAPI };
