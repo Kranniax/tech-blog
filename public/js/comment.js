@@ -16,9 +16,15 @@ function createPost(event) {
       headers: { "Content-Type": "application/json" },
     })
       .then((response) => {
-        if (response.ok){
-            // reload page after successful creation.
-            location.reload();
+        console.log(`This is the response status: ${response.status}`);
+        if (response.status === 401) {
+          // Redirect to login page if unauthorized
+          window.location.replace("/login");
+          return;
+        }
+        if (response.ok) {
+          // reload page after successful creation.
+          location.reload();
         }
       })
       .catch((error) => {
