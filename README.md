@@ -53,7 +53,7 @@ The Tech Blog allows developers to publish their thoughts, articles, and opinion
 
 ## Deployed Website
 
-### [Deployed Link](https://radiant-crag-69087-fda2dfb12b51.herokuapp.com/)
+### [Deployed Link](https://tech-blog-project-9e3a1ade4be8.herokuapp.com/)
 
 ## Technologies Used
 
