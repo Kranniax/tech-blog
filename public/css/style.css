@@ -463,7 +463,142 @@ textarea.form-input {
 .btn-edit:hover {
   background-color: #722fd3;
 }
+/* Comment & Post Form Styling */
+#create-comment-form,
+#create-post-form,
+#comment-form {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-4);
+  margin: var(--spacing-4) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
 
+#create-comment-form textarea,
+#create-post-form textarea,
+#comment-form textarea,
+#create-comment-form input,
+#create-post-form input,
+#comment-form input {
+  width: 100%;
+  padding: var(--spacing-2);
+  font-size: 1rem;
+  border: 2px solid var(--gray-300);
+  border-radius: var(--border-radius-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: var(--font-family-sans);
+  resize: vertical;
+  min-height: 100px;
+  background: var(--gray-100);
+}
+
+#create-comment-form textarea:focus,
+#create-post-form textarea:focus,
+#comment-form textarea:focus,
+#create-comment-form input:focus,
+#create-post-form input:focus,
+#comment-form input:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.15);
+}
+
+#create-comment-form button,
+#create-post-form button,
+#comment-form button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-2) var(--spacing-4);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  align-self: flex-end;
+}
+
+#create-comment-form button:hover,
+#create-post-form button:hover,
+#comment-form button:hover {
+  background-color: var(--secondary);
+}
+
+#create-comment-form label,
+#create-post-form label,
+#comment-form label {
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: var(--spacing-2);
+}
+
+/* Create/Edit Post Form Styling */
+#new-post-form,
+.edit-post-form {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-4);
+  margin: var(--spacing-4) auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+#new-post-form label,
+.edit-post-form label {
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: var(--spacing-2);
+}
+
+#new-post-form input[type="text"],
+.edit-post-form input[type="text"],
+#new-post-form textarea,
+.edit-post-form textarea {
+  width: 100%;
+  padding: var(--spacing-2);
+  font-size: 1rem;
+  border: 2px solid var(--gray-300);
+  border-radius: var(--border-radius-sm);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: var(--font-family-sans);
+  background: var(--gray-100);
+  resize: vertical;
+  min-height: 100px;
+}
+
+#new-post-form input[type="text"]:focus,
+.edit-post-form input[type="text"]:focus,
+#new-post-form textarea:focus,
+.edit-post-form textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.15);
+}
+
+#new-post-form button,
+.edit-post-form button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-2) var(--spacing-4);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  align-self: flex-end;
+}
+
+#new-post-form button:hover,
+.edit-post-form button:hover {
+  background-color: var(--secondary);
+}
 /* Footer */
 footer {
   background-color: var(--gray-800);
