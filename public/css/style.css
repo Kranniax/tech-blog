@@ -567,6 +567,7 @@ textarea.form-input {
 }
 
 #new-post-form label,
+#login-form label,
 .edit-post-form label {
   font-weight: 600;
   color: var(--gray-700);
@@ -575,7 +576,9 @@ textarea.form-input {
 
 #new-post-form input[type="text"],
 .edit-post-form input[type="text"],
+#login-form input[type="text"],
 #new-post-form textarea,
+#login-form textarea,
 .edit-post-form textarea {
   width: 100%;
   padding: var(--spacing-2);
@@ -591,6 +594,7 @@ textarea.form-input {
 
 #new-post-form input[type="text"]:focus,
 .edit-post-form input[type="text"]:focus,
+#login-form input[type="text"]:focus,
 #new-post-form textarea:focus,
 .edit-post-form textarea:focus {
   border-color: var(--primary);
@@ -599,6 +603,7 @@ textarea.form-input {
 }
 
 #new-post-form button,
+#login-form button,
 .edit-post-form button {
   background-color: var(--primary);
   color: white;
@@ -613,6 +618,7 @@ textarea.form-input {
 }
 
 #new-post-form button:hover,
+#login-form button:hover,
 .edit-post-form button:hover {
   background-color: var(--secondary);
 }
