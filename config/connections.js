@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 import "dotenv/config";
 
 let sequelize;
-
+// Checks for Heroko remote database/local database creation.
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {

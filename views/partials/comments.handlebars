@@ -1,0 +1,8 @@
+{{#each this}}
+<li>
+    <p><strong>{{this.user.username}}:</strong> {{this.comment}}</p>
+    <p><small>Posted on {{format_date this.createdAt}}</small></p>
+</li>
+{{else}}
+<li>No comments yet. Be the first to comment!</li>
+{{/each}}

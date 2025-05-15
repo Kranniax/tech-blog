@@ -6,8 +6,6 @@ const router = Router();
 
 // render homepage with all posts
 router.get("/", (req, res) => {
-  // console.log(req.session);
-
   Post.findAll({
     include: [
       {
@@ -53,9 +51,7 @@ router.get("/posts/:id", (req, res) => {
         res.status(404).json({ message: "Cannot locate post with this id" });
         return;
       }
-      // res.json(dbPostData);
       const post = dbPostData.get({ plain: true });
-      // console.log(post);
 
       res.render("single-post", { post, loggedIn: req.session.loggedIn });
     })
